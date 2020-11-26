@@ -3,17 +3,6 @@ let tailwindcss = require('tailwindcss');
 require('dotenv').config();
 
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
 mix.js('resources/js/app.js', 'public/js')
     .webpackConfig({
         resolve: {
@@ -38,25 +27,6 @@ mix.js('resources/js/app.js', 'public/js')
     .copy('node_modules/prismjs/themes/prism-tomorrow.css', 'public/css/prism-tomorrow.css') // Prism Tomorrow theme css
     .copyDirectory('resources/assets/images', 'public/images'); // Copy all images from resources to public folder
 
-
-// Change below options according to your requirement
-// if (mix.inProduction()) {
-//     mix.version();
-//     mix.webpackConfig({
-//         output: {
-//             publicPath: '/demo/vuexy-vuejs-laravel-admin-template/demo-1/',
-//             chunkFilename: 'js/chunks/[name].[chunkhash].js',
-//         }
-//     });
-//     mix.setResourceRoot("/demo/vuexy-vuejs-laravel-admin-template/demo-1/");
-// }
-// else{
-//     mix.webpackConfig({
-//         output: {
-//             chunkFilename: 'js/chunks/[name].js',
-//         }
-//     });
-// }
 
 mix.webpackConfig({
     output: {

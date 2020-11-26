@@ -1,31 +1,20 @@
-/*=========================================================================================
-  File Name: vue.config.js
-  Description: configuration file of vue
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
-
-
 module.exports = {
-  publicPath: '/',
-  transpileDependencies: [
-    'vue-echarts',
-    'resize-detector'
-  ],
-  configureWebpack: {
-    optimization: {
-      splitChunks: {
-        chunks: 'all'
-      }
-    }
+    runtimeCompiler: true,
+    publicPath: '/',
+    lintOnSave: false,
+    transpileDependencies: [
+      'vue-echarts',
+      'resize-detector'
+    ],
+    chainWebpack: config => {
+      config.optimization.delete('splitChunks')
+    },
+    pages: {
+      admin: {
+        entry: 'src/main.js',
+        template: 'public/index.html',
+        filename: 'index.html'
+      },
+    },
   }
-  // devServer: {
-  //   overlay: {
-  //     warnings: true,
-  //     errors: true
-  //   }
-  // }
-}
 

@@ -3121,7 +3121,6 @@
             "description": "Permission handling for Laravel 5.8 and up",
             "homepage": "https://github.com/spatie/laravel-permission",
             "keywords": [
-                "acl",
                 "laravel",
                 "permission",
                 "permissions",
