@@ -11,6 +11,18 @@ const router = new Router({
   routes: [
 
     {
+        path: '/pages/error-404',
+        name: 'error404',
+        component: () => import('./views/pages/Error404.vue'),
+      },
+
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('./views/pages/Login.vue'),
+      },
+
+    {
     // =============================================================================
     // MAIN LAYOUT ROUTES
     // =============================================================================
@@ -35,7 +47,8 @@ const router = new Router({
     {
       path: '*',
       redirect: '/pages/error-404'
-    }
+    },
+
   ]
 })
 
