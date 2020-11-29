@@ -86,15 +86,6 @@ Vue.config.productionTip = false
 
 
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-window.axios = axios;
-window.hostUrl= "http://localhost:8000/api/admin/"
-
 new Vue({
   router,
   store,
