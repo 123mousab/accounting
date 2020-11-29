@@ -21,6 +21,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -41,9 +59,12 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         key: 'status',
         label: 'Status',
-        sortable: false
+        sortable: true
       }],
-      items: []
+      items: [],
+      currentPage: 1,
+      perPage: null,
+      filter: null
     };
   },
   mounted: function mounted() {
@@ -53,6 +74,7 @@ __webpack_require__.r(__webpack_exports__);
       resource: "area"
     };
     this.$store.dispatch("areas/getData", requestSend).then(function (res) {
+      _this.perPage = res.data.meta.per_page;
       _this.items = res.data.data;
     });
   }
@@ -78,29 +100,58 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("b-table", {
-        attrs: {
-          items: _vm.items,
-          fields: _vm.fields,
-          "sort-by": _vm.sortBy,
-          "sort-desc": _vm.sortDesc,
-          responsive: "sm"
-        },
-        on: {
-          "update:sortBy": function($event) {
-            _vm.sortBy = $event
-          },
-          "update:sort-by": function($event) {
-            _vm.sortBy = $event
-          },
-          "update:sortDesc": function($event) {
-            _vm.sortDesc = $event
-          },
-          "update:sort-desc": function($event) {
-            _vm.sortDesc = $event
-          }
-        }
-      })
+      _c(
+        "b-card",
+        [
+          _c("b-table", {
+            attrs: {
+              items: _vm.items,
+              fields: _vm.fields,
+              "sort-by": _vm.sortBy,
+              "sort-desc": _vm.sortDesc,
+              responsive: "sm",
+              "sort-icon-left": "",
+              "show-empty": "",
+              small: "",
+              stacked: "md",
+              "current-page": _vm.currentPage,
+              "per-page": _vm.perPage,
+              filter: _vm.filter
+            },
+            on: {
+              "update:sortBy": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sort-by": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sortDesc": function($event) {
+                _vm.sortDesc = $event
+              },
+              "update:sort-desc": function($event) {
+                _vm.sortDesc = $event
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.items.length,
+              "per-page": _vm.perPage,
+              "aria-controls": "my-table",
+              align: "right"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          })
+        ],
+        1
+      )
     ],
     1
   )
