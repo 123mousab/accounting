@@ -7,7 +7,6 @@
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
-<<<<<<< HEAD
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
@@ -65,9 +64,6 @@
         "vuesax": "jd-0001/vuesax",
         "vuex": "^3.1.1",
         "xlsx": "^0.15.0"
-=======
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
->>>>>>> 58ec71c8663f8dc6044946668571d8cde5b94b29
     },
     "devDependencies": {
         "axios": "^0.19",
