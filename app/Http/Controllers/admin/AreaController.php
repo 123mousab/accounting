@@ -12,8 +12,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
 class AreaController extends Controller
 {
@@ -27,20 +25,7 @@ class AreaController extends Controller
     public function index()
     {
         try {
-            $areas =  AreaResource::collection(
-                QueryBuilder::for($this->service()->model())
-                    ->allowedFilters([
-                        'name',
-                        AllowedFilter::exact('country_id'),
-                        AllowedFilter::exact('status'),
-                    ])
-                    ->allowedSorts([
-                        'name',
-                        'status',
-                        'country_id'
-                    ])
-                    ->paginate(5)
-            );
+            $areas =  AreaResource::collection($this->service()->query()->paginate(20));
         }catch (QueryException $e) {
             return $this->respondInvalidQuery();
         }

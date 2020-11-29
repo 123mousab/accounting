@@ -15,48 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      sortBy: 'id',
-      sortDesc: false,
-      fields: [{
-        key: 'id',
-        label: 'ID',
-        sortable: true
-      }, {
-        key: 'country.name.ar',
-        label: 'Country',
-        sortable: true
-      }, {
-        key: 'name.ar',
-        label: 'Name',
-        sortable: true
-      }, {
-        key: 'status',
-        label: 'Status',
-        sortable: false
-      }],
-      items: []
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    var requestSend = {
-      resource: "area"
-    };
-    this.$store.dispatch("areas/getData", requestSend).then(function (res) {
-      _this.items = res.data.data;
-    });
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -75,35 +34,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("b-table", {
-        attrs: {
-          items: _vm.items,
-          fields: _vm.fields,
-          "sort-by": _vm.sortBy,
-          "sort-desc": _vm.sortDesc,
-          responsive: "sm"
-        },
-        on: {
-          "update:sortBy": function($event) {
-            _vm.sortBy = $event
-          },
-          "update:sort-by": function($event) {
-            _vm.sortBy = $event
-          },
-          "update:sortDesc": function($event) {
-            _vm.sortDesc = $event
-          },
-          "update:sort-desc": function($event) {
-            _vm.sortDesc = $event
-          }
-        }
-      })
-    ],
-    1
-  )
+  return _c("div", [_vm._v("\ntest page\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
